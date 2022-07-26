@@ -33,4 +33,4 @@ fi
 
 install_asdf
 generate_build
-docker-compose exec nginx nginx -s reload
+sudo docker-compose exec nginx nginx -s reload
