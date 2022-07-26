@@ -9,4 +9,26 @@ function install_asdf(){
     node -v
     npm -v
 }
-install_asdf
+
+function generate_build(){
+    echo "Preparing to build..."
+    datetime=$(date +%Y-%m-%d-%H-%M-%S)
+    cd ./app
+    rm -rf node_modules
+    npm install
+    npm run build
+    cd ..
+    tar -cjf backup-build-$datetime.tar.bz2 data/nginx/html
+    rm -rf ./data/nginx/html/build
+    mv ./app/build ./data/nginx/html/build
+    echo "Build generated!"
+    rm -rf ./app/node_modules
+}
+if ! [ -x "$(command -v asdf)" ]; then
+  echo 'Error: asdf not installed.' >&2
+  echo "Instaliing packages..."
+  rm -rf ~/.asdf
+  install_asdf;
+fi
+
+generate_build
