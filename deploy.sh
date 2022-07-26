@@ -1,7 +1,8 @@
 #!/bin/bash
 function install_asdf(){
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-    echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+    echo '/root/.asdf/asdf.sh' >> ~/.bashrc
+    chmod +x /root/.asdf/asdf.sh
     source ~/.bashrc
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
     asdf install nodejs 16.15.1
