@@ -1,6 +1,6 @@
 #!/bin/bash
 function install_asdf(){
-    git clone git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
     echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
     source ~/.bashrc
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -9,3 +9,4 @@ function install_asdf(){
     node -v
     npm -v
 }
+install_asdf
