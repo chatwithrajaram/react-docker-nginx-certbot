@@ -32,6 +32,5 @@ if ! [ -x "$(command -v asdf)" ]; then
   install_asdf;
 fi
 
-install_asdf
 generate_build
 sudo docker-compose exec nginx nginx -s reload
