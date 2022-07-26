@@ -33,4 +33,4 @@ if ! [ -x "$(command -v asdf)" ]; then
 fi
 
 generate_build
-sudo docker-compose exec nginx nginx -s reload
+docker-compose restart nginx
